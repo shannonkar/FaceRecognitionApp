@@ -1,5 +1,5 @@
 import React from 'react'
-
+const proxyURL ="https://immense-headland-53394.herokuapp.com/";
 class Register extends React.Component{
   constructor(props){
     super(props);
@@ -10,6 +10,7 @@ class Register extends React.Component{
 
     }
   }
+  
   onNameChange = (event) =>{
     this.setState({name:  event.target.value})
   }
@@ -21,9 +22,11 @@ class Register extends React.Component{
     this.setState({password:  event.target.value})
   }
    onSubmitSignIn = () => {
-    fetch(' https://smartbrainserver.herokuapp.com/register', {
+    fetch(proxyURL + 'https://smartbrainserver.herokuapp.com/register', {
       method: 'post',
-      headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+              },
       body: JSON.stringify({
         email: this.state.email,
         password: this.state.password,

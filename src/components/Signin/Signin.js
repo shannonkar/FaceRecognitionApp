@@ -1,5 +1,6 @@
 import React from 'react'
 
+const proxyURL ="https://immense-headland-53394.herokuapp.com/";
 //we want this as a smart component with state
 class Signin extends React.Component{
   constructor(props){
@@ -17,7 +18,7 @@ class Signin extends React.Component{
     this.setState({signInPassword:  event.target.value})
   }
   onSubmitSignIn = () => {
-    fetch('https://smartbrainserver.herokuapp.com/signin', {
+    fetch(proxyURL + 'https://smartbrainserver.herokuapp.com/signin', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
